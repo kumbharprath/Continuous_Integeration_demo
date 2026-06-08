@@ -21,8 +21,8 @@ jobs:
         run: docker build -t my-app .
 
       - name: Tag the image
-        run: docker tag my-app ${{secrets.TAG_USERNAME}}/fastapi-demo-app:2
+        run: docker tag my-app ${{secrets.TAG_USERNAME}}/fastapi-demo-app:3
 
       - name: Push Image
-        run: docker push ${{secrets.TAG_USERNAME}}/fastapi-demo-app:2
+        run: docker push ${{secrets.TAG_USERNAME}}/fastapi-demo-app:3
 
