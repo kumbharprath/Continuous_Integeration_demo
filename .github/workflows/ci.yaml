@@ -1,6 +1,6 @@
 name: FastAPI Build
 
-on: Push
+on: push
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Build docker image
-        run: docker build -t my-app.txt
+        run: docker build -t my-app .
 
       - name: Tag the image
         run: docker tag my-app ${{secrets.TAG_USERNAME}}/fastapi-demo-app:2
