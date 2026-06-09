@@ -1,0 +1,26 @@
+name: FastAPI Deply
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Ec2 instance
+        uses: appleboy/ssh-action@v1 0.3
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_SSH_KEY}}
+
+          script: |
+              sudo docker pull ${{secrets.DOCKER_USERNAME}}/fastapi-demo-app:2
+
+              sudo docker stop my-app || true
+
+              sudo docker rm my-app || true
