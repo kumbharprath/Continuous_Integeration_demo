@@ -13,14 +13,16 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
 
-      - name: Test Step
+        run: exit 1
         run: echo "Application Test Successul"
 
   deploy:
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
     
