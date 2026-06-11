@@ -1,6 +1,6 @@
 name: FastAPI Deply
 
-on: push
+# on: push
 
 jobs:
   build:

@@ -1,0 +1,28 @@
+name: Multi Stage Demo
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Build Step
+        run: echo "Application Build Successul"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Test Step
+        run: echo "Application Test Successul"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Deploy Step
+        run: echo "Application Deploy Successul"
